@@ -1,0 +1,8 @@
+<div class="row mt-5">
+    <div class="col-md-8 offset-md-2 text-left">
+
+        <app-list [items]="items"></app-list>
+        <app-pagination [pageCount]="pagination.total" [current]="pagination.current" (changePage)="onChangePage($event)"></app-pagination>
+
+    </div>
+</div>

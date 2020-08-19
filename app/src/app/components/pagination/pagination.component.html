@@ -1,0 +1,7 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li *ngFor="let page of pages" class="page-item" [ngClass]="{'active': page.isActive }">
+            <a class="page-link" (click)="change(page.index)" style="cursor: pointer;">{{ page.index }}</a>
+        </li>
+    </ul>
+</nav>

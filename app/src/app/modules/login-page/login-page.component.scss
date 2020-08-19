@@ -1,0 +1,21 @@
+.form__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    input {
+        padding: 10px;
+    }
+    input[type="email"] {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    input[type="password"] {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}

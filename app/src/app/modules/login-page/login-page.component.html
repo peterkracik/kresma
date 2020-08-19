@@ -1,0 +1,20 @@
+<div class="form__wrapper">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form-signin">
+        <img src="/assets/img/logo.svg" class="mb-4" height="100" width="100">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        <div *ngFor="let error of errors" class="alert alert-warning mb-1">{{ error }}</div>
+        <div *ngIf="loginForm.get('password').touched && loginForm.get('email').invalid" class="alert alert-warning mb-1">
+            Email is not valid.
+        </div>
+        <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="alert alert-warning mb-1">
+            Password can't be blank.
+        </div>
+
+        <div class="mt-3">
+            <input class="form-control" formControlName="email" type="email" placeholder="email">
+            <input class="form-control" formControlName="password" type="password" placeholder="password">
+            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+    </form>
+</div>
