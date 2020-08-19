@@ -9,6 +9,7 @@ import { ListService } from './list.service';
 export class ListResolverService implements Resolve<any> {
     constructor(private listService: ListService) { }
 
+    // call api request
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
         const page = parseInt(route.paramMap.get('page')) || 1;
         const limit = parseInt(route.paramMap.get('limit')) || 5;

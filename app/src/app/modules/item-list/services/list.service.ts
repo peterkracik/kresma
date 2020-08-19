@@ -11,7 +11,11 @@ export class ListService {
 
   constructor(private http: HttpClient) { }
 
-
+  /**
+   * get list of items
+   * @param page     page index (starting from 1)
+   * @param limit   limit items per page
+   */
   getList(page: number = 1, limit: number = 5): Observable<any> {
     let params = new HttpParams();
     // Begin assigning parameters
@@ -25,6 +29,10 @@ export class ListService {
       );
   }
 
+  /**
+   * handling errors
+   * @param err errors
+   */
   private handleError(err: HttpErrorResponse | any) {
     console.error('An error occurred', err);
     return throwError(err.message || err);

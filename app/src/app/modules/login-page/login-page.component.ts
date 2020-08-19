@@ -26,6 +26,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    /** create form */
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -33,12 +34,12 @@ export class LoginPageComponent implements OnInit {
 
   }
 
-  // convenience getter for easy access to form fields
+  // get form
   get f() { return this.loginForm.controls; }
 
   submit() {
-    this.errors = [];
-    console.log('submit');
+    this.errors = []; // remove old errors
+
     if (this.loginForm.invalid) {
       return;
     }
@@ -47,10 +48,10 @@ export class LoginPageComponent implements OnInit {
       .pipe(first())
       .subscribe(
         () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/']); // redirect to homepage if success
         },
         (error: Error) => {
-          this.errors.push(error.message);
+          this.errors.push(error.message); // show errors if not
         }
       );
   }

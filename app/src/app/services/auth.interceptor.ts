@@ -8,6 +8,11 @@ import { AuthenticationService } from './authentication.service';
 export class AuthInterceptor implements HttpInterceptor {
     constructor(private authenticationService: AuthenticationService) { }
 
+    /**
+     * add user's token to the request
+     * @param request
+     * @param next
+     */
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const currentUser = this.authenticationService.currentUserValue;
         if (currentUser && currentUser.token) {

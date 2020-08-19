@@ -26,7 +26,14 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.setPage(changes.pageCount?.currentValue || this.pageCount, changes.current?.currentValue || this.current);
   }
 
+  /**
+   * set values for paginator
+   * @param pageCount  number of pages
+   * @param current    current page index
+   */
   setPage(pageCount: number, current: number = 1) {
+
+    // returns page object for each page
     this.pages = [...Array(pageCount).keys()].map(nr => {
       return {
         index: ++nr,
@@ -35,6 +42,10 @@ export class PaginationComponent implements OnInit, OnChanges {
     });
   }
 
+  /**
+   * change event
+   * @param pageNr   new current page
+   */
   change(pageNr: number) {
     this.changePage.emit(pageNr);
   }
