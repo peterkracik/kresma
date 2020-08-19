@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: qoncept-app
+    build: ./
+    ports:
+      - 84:80
+    labels:
+      - "traefik.enable=false"

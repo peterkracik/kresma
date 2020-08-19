@@ -10,8 +10,8 @@ import Pagination from 'src/app/models/pagination.interface';
   styleUrls: ['./item-list.component.scss']
 })
 export class ItemListComponent implements OnInit {
-  items: Item[] = [];
-  pagination: Pagination;
+  items: Item[] = [];  // items in the list
+  pagination: Pagination;  // paginating
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +26,7 @@ export class ItemListComponent implements OnInit {
   }
 
   onChangePage(pageNr: number) {
+    // redirect on change page event
     this.router.navigate(['', pageNr]);
   }
 
